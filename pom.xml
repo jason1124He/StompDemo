@@ -188,45 +188,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--spring boot热加载-->
-                <configuration>
-                    <fork>true</fork>
-                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
-                    <addResources>true</addResources>
-                    <includeSystemScope>true</includeSystemScope>
-                </configuration>
-
             </plugin>
-
-            <!--            <plugin>-->
-            <!--                <groupId>org.springframework.boot</groupId>-->
-            <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--                <configuration>-->
-            <!--                    <fork>true</fork>-->
-            <!--                    <mainClass>com.sunppenergy.SubstationApplications</mainClass>-->
-            <!--                    <layout>ZIP</layout>-->
-            <!--                </configuration>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <goals>-->
-            <!--                            <goal>repackage</goal>-->
-            <!--                        </goals>-->
-            <!--                        &lt;!&ndash; 分离出代码包-->
-            <!--                        <configuration>-->
-            <!--                            <classifier>exec</classifier>-->
-            <!--                        </configuration>-->
-            <!--                         &ndash;&gt;-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
-
-
         </plugins>
-        <!--        <resources>-->
-        <!--            <resource>-->
-        <!--                <directory>${project.basedir}/src/main/java/com/sunppenergy/utils/camera/res/</directory>-->
-        <!--            </resource>-->
-        <!--        </resources>-->
     </build>
 
 </project>

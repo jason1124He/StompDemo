@@ -1,4 +1,4 @@
-相关前端代码请查看 queue.html 
+相关前端代码请查看 queue.html
 关于后端主动推送数据到页面的验证
 1.启动项目
 2.访问 http://localhost:8080/queue 页面
