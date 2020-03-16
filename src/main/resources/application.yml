@@ -1,0 +1,22 @@
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix:
+      classpath: /templates
+#    prefix: /templates
+  mvc:
+    static-path-pattern: /static/**
+#    view:
+#      prefix: /
+#      suffix: .html
+server:
+  port: 8080
+
+time:
+  cron: "*/5 * * * * *"
+  interval: 5

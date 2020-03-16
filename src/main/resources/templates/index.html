@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="//cdn.jsdelivr.net/sockjs/1.0.0/sockjs.min.js"></script>
+    <script src="../static/js/stomp.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+</head>
+<body>
+<button id="btn-send">广播消息</button>
+<button id="btn-send2">精准投送</button>
+<button id="btn-send3">动态广播</button>
+<button id="btn-send4">动态精准广播</button>
+</body>
+<script>
+    var stompClient = null;
+    var subscription = null;
+    $(function () {
+        var ws = new SockJS("/webServer");
+        stompClient = Stomp.over(ws);
+        stompClient.connect({'client-id': 'my-client'}, function () {
+        });
+
+        $("#btn-send").click(function () {
+            if (subscription != null) {
+                subscription.unsubscribe();
+            }
+            subscription = stompClient.subscribe("/topic/boardcast", function () {
+            });
+            stompClient.send("/app/boardcast", {}, "请求广播");
+        });
+        $("#btn-send2").click(function () {
+            if (subscription != null) {
+                subscription.unsubscribe();
+            }
+            subscription = stompClient.subscribe("/queue/topic/precise", function () {
+            });
+            stompClient.send("/app/precise", {}, "请求精准投送");
+        });
+        // 请求动态广播
+        $("#btn-send3").click(function () {
+            if (subscription != null) {
+                subscription.unsubscribe();
+            }
+            subscription = stompClient.subscribe("/topic", function () {
+            });
+        });
+        // 请求精准投送
+        $("#btn-send4").click(function () {
+            if (subscription != null) {
+                subscription.unsubscribe();
+            }
+            subscription = stompClient.subscribe("/queue/abc/message", function () {
+            });
+        });
+    });
+</script>
+</html>

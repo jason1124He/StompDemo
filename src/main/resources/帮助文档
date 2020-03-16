@@ -1,0 +1,13 @@
+相关前端代码请查看 queue.html 
+关于后端主动推送数据到页面的验证
+1.启动项目
+2.访问 http://localhost:8080/queue 页面
+3.点击connect按钮，订阅指定队列
+4.postman调用http://localhost:8080/test 接口，可以看到页面上多出一行{"deviceId":null,"level":null,"status":null,"depth":null,"key":1,"text":"1","fill":null,"__gohashid":null,"source":null,"parent":null}
+5.验证完毕
+
+
+关于定时推送数据到页面的验证
+1.连接订阅主题
+2.SocketController::testPlan()，每隔1.5s会主动推送一条数据到前端
+3:数据内容 {"deviceId":null,"level":null,"status":null,"depth":null,"key":1500,"text":"定时推送","fill":null,"__gohashid":null,"source":null,"parent":null}
